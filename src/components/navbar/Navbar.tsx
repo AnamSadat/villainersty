@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LogOut, Settings, User } from 'lucide-react';
+import { LogOut, Search, Settings, User } from 'lucide-react';
 
 export default function NavbarDrawer() {
   const pathname = usePathname();
@@ -15,67 +15,54 @@ export default function NavbarDrawer() {
   ];
 
   return (
-    <div className="drawer">
-      <input id="nav-drawer" type="checkbox" className="drawer-toggle" />
-
+    <div className="drawer drawer-end">
+      <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="navbar shadow-sm w-full">
-          {/* <-- CONTAINER: batasi lebar dan center konten navbar --> */}
-          <div className="container mx-auto px-4 flex items-center gap-4">
-            {/* Mobile hamburger */}
-            <div className="flex-none lg:hidden">
-              <label
-                htmlFor="nav-drawer"
-                aria-label="open sidebar"
-                className="btn btn-square btn-ghost"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  className="inline-block h-6 w-6 stroke-current"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
-              </label>
-            </div>
-
-            {/* Logo (flex-1 agar menu center tetap di tengah) */}
-            <div className="flex-1">
-              <Link href="/" className="font-bold text-lg">
-                LOGO
+        <div className="navbar shadow-sm w-full fixed top-0 z-50 bg-white">
+          <div className="container mx-auto flex items-center">
+            {/* Navbar start */}
+            <div className="navbar-start mx-2 flex-1 px-2">
+              <Link href={'/'}>
+                <Image
+                  src={'/villainersty.png'}
+                  alt="logo"
+                  height={0}
+                  width={80}
+                />
               </Link>
             </div>
 
-            {/* Desktop menu */}
-            <div className="hidden lg:block">
-              <ul className="menu menu-horizontal gap-2">
-                {routes.map((r) => (
-                  <li key={r.link}>
+            {/* Navbar center */}
+            <div className="navbar-center hidden flex-none lg:block">
+              <ul className="menu menu-horizontal gap-3">
+                {/* Navbar menu content here */}
+                {routes.map((route) => (
+                  <li key={route.link}>
                     <Link
-                      href={r.link}
-                      className={pathname === r.link ? 'font-bold' : ''}
+                      href={route.link}
+                      className={pathname === route.link ? 'font-bold ' : ''}
                     >
-                      {r.name}
+                      {route.name}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Right icons */}
-            <div className="flex-none flex items-center gap-2">
-              <input
-                type="text"
-                placeholder="Search"
-                className="input input-bordered w-24 md:w-auto"
-              />
+            {/* Navbar end */}
+            <div className="navbar-end flex-1 gap-4">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  className="input input-bordered w-24 md:w-auto pl-8"
+                />
+                <Search
+                  size={20}
+                  className="absolute z-50 translate-x-2 top-1/2 transform -translate-y-1/2 text-gray-400 "
+                />
+              </div>
 
               {/* Cart */}
               <div className="dropdown dropdown-end">
@@ -119,8 +106,14 @@ export default function NavbarDrawer() {
                 </div>
               </div>
 
-              {/* Avatar */}
-              <div className="dropdown dropdown-end">
+              {/* avatar */}
+              <div className="flex gap-2">
+                <Link href={'/login'}>
+                  <button className="btn btn-soft rounded-lg">Sign In</button>
+                </Link>
+                <button className="btn btn-neutral rounded-lg">Sign Up</button>
+              </div>
+              {/* <div className="dropdown dropdown-end">
                 <div
                   tabIndex={0}
                   role="button"
@@ -155,26 +148,46 @@ export default function NavbarDrawer() {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
+            </div>
+            <div className="flex-none lg:hidden">
+              <label
+                htmlFor="my-drawer-3"
+                aria-label="open sidebar"
+                className="btn btn-square btn-ghost"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  className="inline-block h-6 w-6 stroke-current"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </label>
             </div>
           </div>
-          {/* <-- akhir container --> */}
         </div>
       </div>
-
-      {/* Drawer side (sidebar full-height) */}
       <div className="drawer-side">
         <label
-          htmlFor="nav-drawer"
+          htmlFor="my-drawer-3"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-4">
-          {routes.map((route) => (
-            <li key={route.link}>
-              <Link href={route.link}>{route.name}</Link>
-            </li>
-          ))}
+          {/* Sidebar content here */}
+          <li>
+            <a>Sidebar Item 1</a>
+          </li>
+          <li>
+            <a>Sidebar Item 2</a>
+          </li>
         </ul>
       </div>
     </div>
