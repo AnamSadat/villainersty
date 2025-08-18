@@ -53,15 +53,25 @@ export default function NavbarDrawer() {
             {/* Navbar end */}
             <div className="navbar-end flex-1 gap-4">
               <div>
-                <input
-                  type="text"
-                  placeholder="Search"
-                  className="input input-bordered w-24 md:w-auto pl-8"
-                />
-                <Search
-                  size={20}
-                  className="absolute z-50 translate-x-2 top-1/2 transform -translate-y-1/2 text-gray-400 "
-                />
+                <label className="input">
+                  <svg
+                    className="h-[1em] opacity-50"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                  >
+                    <g
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                      strokeWidth="2.5"
+                      fill="none"
+                      stroke="currentColor"
+                    >
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                  </svg>
+                  <input type="search" required placeholder="Search" />
+                </label>
               </div>
 
               {/* Cart */}
@@ -107,11 +117,15 @@ export default function NavbarDrawer() {
               </div>
 
               {/* avatar */}
-              <div className="flex gap-2">
+              <div className="gap-2 hidden lg:flex">
                 <Link href={'/login'}>
                   <button className="btn btn-soft rounded-lg">Sign In</button>
                 </Link>
-                <button className="btn btn-neutral rounded-lg">Sign Up</button>
+                <Link href={'/register'}>
+                  <button className="btn btn-neutral rounded-lg">
+                    Sign Up
+                  </button>
+                </Link>
               </div>
               {/* <div className="dropdown dropdown-end">
                 <div
@@ -174,21 +188,36 @@ export default function NavbarDrawer() {
           </div>
         </div>
       </div>
-      <div className="drawer-side">
+
+      {/* Navbar side */}
+      <div className="drawer-side z-100">
         <label
           htmlFor="my-drawer-3"
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <ul className="menu bg-base-200 min-h-full w-80 p-4">
-          {/* Sidebar content here */}
-          <li>
-            <a>Sidebar Item 1</a>
-          </li>
-          <li>
-            <a>Sidebar Item 2</a>
-          </li>
-        </ul>
+        <div className="flex flex-col bg-base-200 min-h-full w-80">
+          <div className="gap-2 flex flex-col p-4">
+            <Link href={'/login'}>
+              <button className="btn btn-soft rounded-lg w-full">
+                Sign In
+              </button>
+            </Link>
+            <Link href={'/register'}>
+              <button className="btn btn-neutral rounded-lg w-full">
+                Sign Up
+              </button>
+            </Link>
+          </div>
+          <ul className="menu bg-base-200 flex-1 min-h-full w-80 p-4">
+            {/* Sidebar content here */}
+            {routes.map((route) => (
+              <li key={route.link}>
+                <Link href={route.link}>{route.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
