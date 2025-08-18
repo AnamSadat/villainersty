@@ -8,7 +8,7 @@ export default function RootLayout({
     <>
       <div className="antialiased relative w-full  lg:h-screen mt-0 text-white">
         <header className="fixed top-0 z-50 w-full">
-          <div className="container flex h-20 mx-auto items-center px-2">
+          <div className="container flex py-2 mx-auto items-center px-2">
             <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/villainersty.png"
