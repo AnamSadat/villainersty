@@ -2,3 +2,13 @@
 @plugin "daisyui" {
   themes: all;
 }
+
+.input:focus,
+.input:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.validator-hint {
+  display: none;
+}

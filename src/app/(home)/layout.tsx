@@ -1,5 +1,5 @@
 import Footer from '@/components/footer/Footer';
-import NavbarDrawer from '@/components/navbar/Navbar';
+import NavbarDrawer from '@/components/organism/navbar/Navbar';
 
 export default function RootLayout({
   children,

@@ -2,6 +2,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
+  const services = [
+    { link: '/', name: 'Branding' },
+    { link: '/', name: 'Design' },
+    { link: '/', name: 'Marketing' },
+    { link: '/', name: 'Advertisement' },
+  ];
+
+  const company = [
+    { link: '/', name: 'About Us' },
+    { link: '/', name: 'Contact' },
+    { link: '/', name: 'Jobs' },
+    { link: '/', name: 'Preset Kit' },
+  ];
+
+  const legal = [
+    { link: '/', name: 'Term of use' },
+    { link: '/', name: 'Privacy Police' },
+    { link: '/', name: 'Cookie Police' },
+  ];
   return (
     <div>
       <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
@@ -15,45 +34,27 @@ export default function Footer() {
         </aside>
         <nav>
           <h6 className="footer-title">Services</h6>
-          <Link href={'#'} className="link link-hover">
-            Branding
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Design
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Marketing
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Advertisement
-          </Link>
+          {services.map((item) => (
+            <Link key={item.name} href={item.link}>
+              {item.name}
+            </Link>
+          ))}
         </nav>
         <nav>
           <h6 className="footer-title">Company</h6>
-          <Link href={'#'} className="link link-hover">
-            About us
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Contact
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Jobs
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Press kit
-          </Link>
+          {company.map((item) => (
+            <Link key={item.name} href={item.link}>
+              {item.name}
+            </Link>
+          ))}
         </nav>
         <nav>
           <h6 className="footer-title">Legal</h6>
-          <Link href={'#'} className="link link-hover">
-            Terms of use
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Privacy policy
-          </Link>
-          <Link href={'#'} className="link link-hover">
-            Cookie policy
-          </Link>
+          {legal.map((item) => (
+            <Link key={item.name} href={item.link}>
+              {item.name}
+            </Link>
+          ))}
         </nav>
       </footer>
       <div className="bg-base-300 text-center py-4 text-sm">
