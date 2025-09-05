@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { ReactNode } from 'react';
-import { Input, InputProps } from '../atoms/global/Input';
+import { Input, InputProps } from '../../atoms/global/Input';
 
 type InputWithLabelProps = InputProps & {
   label: string;

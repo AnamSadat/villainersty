@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { FooterMain, FooterTitle } from '@/components';
 
 export default function Footer() {
   const services = [
@@ -23,7 +24,7 @@ export default function Footer() {
   ];
   return (
     <div>
-      <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+      <FooterMain className=" sm:footer-horizontal bg-base-200 text-base-content p-10">
         <aside>
           <Image src={'/villainersty.png'} alt="logo" width={100} height={0} />
           <p>
@@ -33,7 +34,7 @@ export default function Footer() {
           </p>
         </aside>
         <nav>
-          <h6 className="footer-title">Services</h6>
+          <FooterTitle>Services</FooterTitle>
           {services.map((item) => (
             <Link key={item.name} href={item.link}>
               {item.name}
@@ -41,7 +42,7 @@ export default function Footer() {
           ))}
         </nav>
         <nav>
-          <h6 className="footer-title">Company</h6>
+          <FooterTitle>Company</FooterTitle>
           {company.map((item) => (
             <Link key={item.name} href={item.link}>
               {item.name}
@@ -49,14 +50,14 @@ export default function Footer() {
           ))}
         </nav>
         <nav>
-          <h6 className="footer-title">Legal</h6>
+          <FooterTitle>Legal</FooterTitle>
           {legal.map((item) => (
             <Link key={item.name} href={item.link}>
               {item.name}
             </Link>
           ))}
         </nav>
-      </footer>
+      </FooterMain>
       <div className="bg-base-300 text-center py-4 text-sm">
         <p>
           Copyright © {new Date().getFullYear()} - All right reserved by
