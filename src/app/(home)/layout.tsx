@@ -1,4 +1,4 @@
-import Footer from '@/components/footer/Footer';
+import Footer from '@/components/organism/footer/Footer';
 import NavbarDrawer from '@/components/organism/navbar/Navbar';
 
 export default function RootLayout({
