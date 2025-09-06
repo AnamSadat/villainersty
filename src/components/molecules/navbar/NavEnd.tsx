@@ -7,10 +7,8 @@ import {
   Dropdown,
   Indicator,
   IndicatorItem,
-  Input,
-  Label,
   NavbarPart,
-  Search,
+  SearchInput,
 } from '@/components';
 import Link from 'next/link';
 import React from 'react';
@@ -19,10 +17,7 @@ export const NavEnd = () => {
   return (
     <NavbarPart className=" flex-1 gap-4" part={'end'}>
       <div>
-        <Label className="input">
-          <Search className="h-[1em] opacity-50" />
-          <Input type="search" required placeholder="Search" />
-        </Label>
+        <SearchInput />
       </div>
 
       {/* Cart */}
