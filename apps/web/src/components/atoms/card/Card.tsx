@@ -10,7 +10,7 @@ export const Card = ({
   ...props
 }: CardProps) => {
   const baseClass = clsx(
-    'card',
+    'card shadow-sm ',
     size && `card-${size}`,
     styleType && `card-${styleType}`,
     className
