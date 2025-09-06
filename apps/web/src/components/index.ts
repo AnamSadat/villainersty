@@ -33,6 +33,7 @@ export * from '@/components/atoms/footer/Footer';
 // Global
 export * from '@/components/molecules/global/InputLabel';
 export * from '@/components/molecules/global/Logo';
+export * from '@/components/molecules/global/SearchInput';
 
 // Card
 export * from '@/components/molecules/card/CardActionButton';
@@ -59,3 +60,6 @@ export * from '@/components/organism/footer/Footer';
 
 // Navbar
 export * from '@/components/organism/navbar/Navbar';
+
+// Sidebar
+export * from '@/components/organism/sidebar/Sidebar';

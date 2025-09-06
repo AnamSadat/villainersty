@@ -25,6 +25,42 @@ export default function TestUI() {
     'btn-link',
   ];
 
+  // drawer, navbar, menu trigger
+  const drawerClasses = [
+    'drawer',
+    'drawer-toggle',
+    'drawer-content',
+    'drawer-side',
+    'drawer-overlay',
+    'drawer-end',
+    'drawer-open',
+  ];
+
+  const navbarClasses = [
+    'navbar',
+    'navbar-start',
+    'navbar-center',
+    'navbar-end',
+  ];
+
+  const menuClasses = [
+    'menu',
+    'menu-title',
+    'menu-dropdown',
+    'menu-dropdown-toggle',
+    'menu-disabled',
+    'menu-active',
+    'menu-focus',
+    'menu-dropdown-show',
+    'menu-xs',
+    'menu-sm',
+    'menu-md',
+    'menu-lg',
+    'menu-xl',
+    'menu-vertical',
+    'menu-horizontal',
+  ];
+
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-screen">
       {/* Hidden div supaya Tailwind generate semua CSS */}
@@ -44,6 +80,21 @@ export default function TestUI() {
             {st}
           </span>
         ))}
+        {drawerClasses.map((d) => (
+          <span key={d} className={d}>
+            {d}
+          </span>
+        ))}
+        {navbarClasses.map((n) => (
+          <span key={n} className={n}>
+            {n}
+          </span>
+        ))}
+        {menuClasses.map((m) => (
+          <span key={m} className={m}>
+            {m}
+          </span>
+        ))}
       </div>
 
       {/* Button real */}
@@ -56,6 +107,7 @@ export default function TestUI() {
           Success LG
         </Button>
       </CardActions>
+
       <Button variant="success" size="lg">
         Success LG
       </Button>
@@ -63,7 +115,11 @@ export default function TestUI() {
       <Button variant="warning" circle>
         Warning Default
       </Button>
+
       <Button styleType={'outline'} variant={'info'}>
+        aas
+      </Button>
+      <Button styleType={'ghost'} variant={'info'}>
         aas
       </Button>
     </div>

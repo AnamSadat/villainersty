@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 
 type DropdownProps = {
@@ -9,6 +9,7 @@ type DropdownProps = {
   direction?: 'top' | 'bottom' | 'left' | 'right'; // arah buka
   hover?: boolean; // buka saat hover
   open?: boolean; // force open
+  inline?: boolean;
   className?: string;
 };
 
@@ -42,6 +43,38 @@ export const Dropdown: React.FC<DropdownProps> = ({
       >
         {children}
       </ul>
+    </div>
+  );
+};
+
+export const DropdownManual: React.FC<DropdownProps> = ({
+  trigger,
+  children,
+  className,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handleToggle = () => setIsOpen(!isOpen);
+
+  return (
+    <div className={clsx('w-full cursor-pointer select-none', className)}>
+      {/* Trigger */}
+      <div
+        onClick={handleToggle}
+        role="button"
+        className="transition-colors duration-300"
+      >
+        {trigger}
+      </div>
+
+      {/* Dropdown content */}
+      <div
+        className={clsx(
+          'mt-2 w-full overflow-hidden transition-all duration-300',
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 };
