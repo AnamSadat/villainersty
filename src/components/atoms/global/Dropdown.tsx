@@ -11,6 +11,7 @@ type DropdownProps = {
   open?: boolean; // force open
   inline?: boolean;
   className?: string;
+  defaultOpen?: boolean;
 };
 
 export const Dropdown: React.FC<DropdownProps> = ({
@@ -50,9 +51,10 @@ export const Dropdown: React.FC<DropdownProps> = ({
 export const DropdownManual: React.FC<DropdownProps> = ({
   trigger,
   children,
+  defaultOpen = false,
   className,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const handleToggle = () => setIsOpen(!isOpen);
 
   return (
@@ -61,16 +63,31 @@ export const DropdownManual: React.FC<DropdownProps> = ({
       <div
         onClick={handleToggle}
         role="button"
-        className="transition-colors duration-300"
+        className="py-2 transition-colors duration-300 flex justify-between items-center"
       >
         {trigger}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          className={clsx(
+            'transform transition-transform duration-300',
+            isOpen ? 'rotate-180' : 'rotate-0'
+          )}
+        >
+          <path
+            fill="currentColor"
+            d="m12 15.4l-6-6L7.4 8l4.6 4.6L16.6 8L18 9.4z"
+          />
+        </svg>
       </div>
 
       {/* Dropdown content */}
       <div
         className={clsx(
-          'mt-2 w-full overflow-hidden transition-all duration-300',
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+          ' w-full overflow-hidden transition-all duration-300',
+          isOpen ? 'max-h-96 opacity-100 mt-2' : 'max-h-0 opacity-0'
         )}
       >
         {children}
