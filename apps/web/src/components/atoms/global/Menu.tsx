@@ -15,7 +15,7 @@ export const Menu = ({
   direction = 'vertical',
 }: MenuProps) => {
   const baseClass = clsx(
-    'menu',
+    'menu w-auto',
     size && `menu-${size}`,
     direction && `menu-${direction}`,
     className
