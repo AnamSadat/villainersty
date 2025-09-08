@@ -15,7 +15,7 @@ export const Menu = ({
   direction = 'vertical',
 }: MenuProps) => {
   const baseClass = clsx(
-    'menu',
+    'menu w-auto',
     size && `menu-${size}`,
     direction && `menu-${direction}`,
     className
@@ -75,7 +75,7 @@ export const MenuDropdown = ({
   return <ul className={baseClass}>{children}</ul>;
 };
 
-type MenuDropdownToggleProps = {
+type MenuDropdownToggleProps = React.HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
   className?: string;
 };
@@ -83,8 +83,11 @@ type MenuDropdownToggleProps = {
 export const MenuDropdownToggle = ({
   children,
   className,
+  ...props
 }: MenuDropdownToggleProps) => {
   return (
-    <div className={clsx('menu-dropdown-toggle', className)}>{children}</div>
+    <div className={clsx('menu-dropdown-toggle', className)} {...props}>
+      {children}
+    </div>
   );
 };

@@ -17,6 +17,7 @@ import {
   NavStart,
 } from '@/components';
 import { Navbar } from '@/components';
+import clsx from 'clsx';
 
 export default function NavbarDrawer() {
   const pathname = usePathname();
@@ -57,7 +58,7 @@ export default function NavbarDrawer() {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></Label>
-        <div className="flex flex-col bg-base-200 min-h-full w-80">
+        <div className="flex flex-col bg-base-200 min-h-full sm:w-80 w-52">
           <div className="gap-2 flex flex-col p-4">
             <Link href={'/login'}>
               <Button className="btn btn-soft rounded-lg w-full">
@@ -73,10 +74,10 @@ export default function NavbarDrawer() {
           <Menu className="bg-base-200 flex-1 min-h-full w-80 p-4 gap-3">
             {/* Sidebar content here */}
             {routes.map((route) => (
-              <MenuItem key={route.link}>
+              <MenuItem key={route.link} className="">
                 <Link
                   href={route.link}
-                  className={pathname === route.link ? 'menu-active' : ''}
+                  className={clsx(pathname === route.link ? 'menu-active' : '')}
                 >
                   {route.name}
                 </Link>
