@@ -29,7 +29,7 @@ export default function Footer() {
         className="
           bg-base-200 text-base-content p-10
           flex flex-col items-center text-center
-          sm:grid sm:grid-cols-4 sm:items-center sm:text-left
+          sm:grid sm:grid-cols-4 sm:items-start sm:text-left
         "
       >
         <aside className="flex flex-col items-center sm:items-start w-full">
