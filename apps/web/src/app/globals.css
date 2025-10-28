@@ -1,0 +1,38 @@
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes: all;
+}
+
+.input:focus,
+.input:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.select:focus,
+.select:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.validator-hint {
+  display: none;
+}
+
+select option {
+  @apply bg-base-100 text-base-content;
+}
+
+select option:checked {
+  @apply bg-warning text-warning-content;
+}
+
+select option:disabled {
+  @apply text-neutral opacity-60;
+}
+
+.select::after {
+  display: none !important;
+  content: none !important;
+  background: none !important;
+}
