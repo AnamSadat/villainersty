@@ -15,5 +15,8 @@
   "ts-node": {
     "esm": true,
     "transpileOnly": true
+  },
+  "paths": {
+    "@prisma/client": ["../../node_modules/@prisma/client"]
   }
 }
